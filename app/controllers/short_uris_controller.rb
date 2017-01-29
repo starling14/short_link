@@ -11,10 +11,6 @@ class ShortUrisController < ApplicationController
     @short_uri = short_uri_protocol.short_uris.create({user_url: url_handler.url_without_protocol})
   end
 
-  def show
-    @short_uri = ShortUri.find(short_uri_params[:id])
-  end
-
   def short_uri_params
     params[:short_uri]
   end
