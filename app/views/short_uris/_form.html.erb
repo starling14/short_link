@@ -1,0 +1,7 @@
+<%= form_for short_uri, remote: :true, format: :js do |f| %>
+    <%= f.text_field :user_url %>
+    <% short_uri.errors.full_messages.each do |err_msg| %>
+        <%= err_msg %>
+    <% end %>
+    <%= f.submit %>
+<% end %>
