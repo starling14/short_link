@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require_relative '../app/middleware/user_url_redirect'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -13,6 +15,6 @@ module ShortLink
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << Rails.root.join('lib')
 
-    config.middleware.insert_before "ActionDispatch::Static", "UserUrlRedirect"
+    config.middleware.insert_before ActionDispatch::Static, UserUrlRedirect
   end
 end
