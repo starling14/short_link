@@ -3,5 +3,8 @@
     <% short_uri.errors.full_messages.each do |err_msg| %>
         <%= err_msg %>
     <% end %>
-    <%= f.submit %>
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">SHORTEN
+      <i class="material-icons right">send</i>
+    </button>
 <% end %>

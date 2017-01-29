@@ -1,5 +1,6 @@
 <% if @short_uri.short_uri %>
-    $("#short_uri").html('<%= @short_uri.short_uri %>');
+    $("#short_uri").show();
+    $("#short_uri").val('<%= request.protocol + request.host_with_port + '/' + @short_uri.short_uri %>');
 <% else %>
     $("#short_uri_form").html('<%= render(partial:'form', locals:{short_uri:@short_uri}).gsub("\n", "").html_safe %>');
 <% end %>
