@@ -27,7 +27,7 @@ module ShortUriGenerator
     current_part == 0 ? 1 : 0
   end
 
-  def self.offset_by_chars_count(chars_count)
+  def self.id_offset(chars_count)
     CHARS_LENGTH**(chars_count - 1) - 1
   end
 end

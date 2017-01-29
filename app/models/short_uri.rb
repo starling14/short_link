@@ -19,6 +19,6 @@ class ShortUri < ApplicationRecord
   end
 
   def offset_for_pk
-    @offset_for_pk ||= ShortUriGenerator.offset_by_chars_count(SHORT_URI_MIN_LENGTH)
+    @offset_for_pk ||= ShortUriGenerator.id_offset(SHORT_URI_MIN_LENGTH)
   end
 end
