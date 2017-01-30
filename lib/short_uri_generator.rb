@@ -1,8 +1,10 @@
+# Uses 2 separate sets of chars for avoiding sequence and repeatability in the result string
 module ShortUriGenerator
   CHARS_START_IDX = 0
   CHARS = ['23456789BCDFGHJKbcdfghjk', 'MNPQRSTVWXYZmnpqrstvwxyz']
   CHARS_LENGTH = 24
 
+  # encodes integer to string
   def self.encode(number)
     result = ''
     chars_part = CHARS_START_IDX
@@ -14,6 +16,7 @@ module ShortUriGenerator
     result
   end
 
+  # decodes string to integer
   def self.decode(str)
     chars_part = CHARS_START_IDX
     str.chars.each_with_index.inject(0) do |sum,(char,i)|
@@ -27,6 +30,7 @@ module ShortUriGenerator
     current_part == 0 ? 1 : 0
   end
 
+  # returns integer offset for getting a string with specific length
   def self.id_offset(chars_count)
     CHARS_LENGTH**(chars_count - 1) - 1
   end

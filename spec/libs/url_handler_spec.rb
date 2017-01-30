@@ -21,11 +21,11 @@ RSpec.describe UrlHandler do
       @url_handler = UrlHandler.new('cnn.com')
     end
 
-    it 'return default protocol if it absent' do
+    it 'return default protocol if it is absent' do
       expect(@url_handler.protocol).to eq('http')
     end
 
-    it 'return url without protocol if it absent' do
+    it 'return url without protocol if it is absent' do
       expect(@url_handler.url_without_protocol).to eq('cnn.com')
     end
   end
