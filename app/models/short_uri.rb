@@ -8,4 +8,8 @@ class ShortUri < ApplicationRecord
   validates_format_of :user_url, with: /\A[a-zA-Z0-9]{1}[a-zA-Z0-9-]{1,}/ # very simple validation for allowing max urls quantity
 
   after_create :save_short_uri
+
+  def user_url_with_protocol
+    "#{short_uri_protocol.name}://#{user_url}"
+  end
 end

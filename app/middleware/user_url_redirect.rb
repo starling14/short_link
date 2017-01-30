@@ -8,7 +8,7 @@ class UserUrlRedirect
     if short_uri?(uri)
       pk_id = ShortUriGenerator.decode(uri)
       s_uri = ShortUri.find(pk_id_without_offset(pk_id))
-      generate_response("#{s_uri.short_uri_protocol.name}://#{s_uri.user_url}")
+      generate_response(s_uri.user_url_with_protocol)
     else
       @app.call(env)
     end
